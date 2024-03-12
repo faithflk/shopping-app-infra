@@ -89,16 +89,4 @@ resource "aws_key_pair" "shopping" {
 }
 
 
-#-----------------------------------
-# creating records 
-#-----------------------------------
-
-resource "aws_route53_record" "frontend" {
-  zone_id = data.aws_route53_zone.mydomain.zone_id
-  name    = "${var.hostname}.${var.domain_name}"
-  type    = "A"
-  ttl     = 60
-  records = [aws_instance.frontend.public_ip]  
-}
-
 
